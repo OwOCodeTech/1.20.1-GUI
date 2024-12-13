@@ -11,7 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.prizowo.examplemod.block.ModBlocks;
 import net.prizowo.examplemod.menu.ModeSwitcherMenu;
-import net.prizowo.examplemod.networking.ModMessages;
+import net.prizowo.examplemod.network.ModMessages;
 import net.prizowo.examplemod.screen.ModeSwitcherScreen;
 
 @Mod(Examplemod.MOD_ID)

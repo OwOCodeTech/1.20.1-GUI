@@ -10,8 +10,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.level.GameType;
 import net.prizowo.examplemod.menu.ModeSwitcherMenu;
-import net.prizowo.examplemod.networking.ModMessages;
-import net.prizowo.examplemod.networking.packet.SetGameModeC2SPacket;
+import net.prizowo.examplemod.network.ModMessages;
+import net.prizowo.examplemod.network.packet.SetGameModeC2SPacket;
 
 public class ModeSwitcherScreen extends AbstractContainerScreen<ModeSwitcherMenu> {
     private static final ResourceLocation TEXTURE = 

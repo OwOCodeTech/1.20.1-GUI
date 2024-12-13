@@ -1,4 +1,4 @@
-package net.prizowo.examplemod.networking.packet;
+package net.prizowo.examplemod.network.packet;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

@@ -1,4 +1,4 @@
-package net.prizowo.examplemod.networking;
+package net.prizowo.examplemod.network;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -7,7 +7,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.prizowo.examplemod.Examplemod;
-import net.prizowo.examplemod.networking.packet.SetGameModeC2SPacket;
+import net.prizowo.examplemod.network.packet.SetGameModeC2SPacket;
 
 public class ModMessages {
     private static SimpleChannel INSTANCE;
