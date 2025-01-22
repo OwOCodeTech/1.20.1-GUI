@@ -51,14 +51,14 @@ public class ModeSwitcherScreen extends AbstractContainerScreen<ModeSwitcherMenu
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
         this.renderBackground(graphics);
         super.render(graphics, mouseX, mouseY, delta);
-        
-        // 绘制标题
-        graphics.drawCenteredString(this.font, this.title, 
-                this.leftPos + this.imageWidth / 2, 
-                this.topPos + 6, 
-                0x404040);
+        this.renderTooltip(graphics, mouseX, mouseY);
     }
 
+    @Override
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+        graphics.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 4210752, false);
+    }
+    
     @Override
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -70,4 +70,4 @@ public class ModeSwitcherScreen extends AbstractContainerScreen<ModeSwitcherMenu
         
         graphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight, TEXTURE_WIDTH, TEXTURE_HEIGHT);
     }
-} 
+}
