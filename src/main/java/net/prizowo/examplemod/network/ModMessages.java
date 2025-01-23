@@ -8,6 +8,7 @@ import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.prizowo.examplemod.Examplemod;
 import net.prizowo.examplemod.network.packet.SetGameModeC2SPacket;
+import net.prizowo.examplemod.network.packet.UpdateHopperC2SPacket;
 
 public class ModMessages {
     private static SimpleChannel INSTANCE;
@@ -31,6 +32,12 @@ public class ModMessages {
                 .decoder(SetGameModeC2SPacket::new)
                 .encoder(SetGameModeC2SPacket::toBytes)
                 .consumerMainThread(SetGameModeC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(UpdateHopperC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(UpdateHopperC2SPacket::new)
+                .encoder(UpdateHopperC2SPacket::toBytes)
+                .consumerMainThread(UpdateHopperC2SPacket::handle)
                 .add();
     }
 

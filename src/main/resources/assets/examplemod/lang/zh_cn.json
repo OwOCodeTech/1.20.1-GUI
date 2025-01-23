@@ -1,3 +1,8 @@
 {
-  "block.examplemod.mode_switcher": "游戏模式切换器"
+  "block.examplemod.mode_switcher": "游戏模式切换器",
+  "gui.examplemod.hopper.should_drop": "允许漏出",
+  "gui.examplemod.hopper.enable_drop": "启用掉落",
+  "gui.examplemod.hopper.disable_drop": "禁用掉落",
+  "gui.examplemod.hopper.max_count": "最大数量",
+  "gui.examplemod.hopper.confirm": "确定"
 } 
