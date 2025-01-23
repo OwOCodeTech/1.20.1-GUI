@@ -35,16 +35,21 @@ public class UpdateHopperC2SPacket {
             if (player != null) {
                 Container container = player.containerMenu.slots.get(0).container;
                 if (container instanceof HopperBlockEntity hopper) {
-                    CompoundTag tag = new CompoundTag();
-                    tag.putBoolean("ShouldDrop", shouldDrop);
-                    tag.putInt("MaxDropCount", Math.max(1, Math.min(64, maxDropCount)));
-                    hopper.load(tag);
-                    hopper.setChanged();
-                    
-                    if (hopper.getLevel() != null) {
-                        hopper.getLevel().sendBlockUpdated(hopper.getBlockPos(), 
-                            hopper.getBlockState(), hopper.getBlockState(), 3);
-                        hopper.getLevel().blockEntityChanged(hopper.getBlockPos());
+                    if (!hopper.getLevel().isClientSide) {
+                        synchronized (hopper) {
+                            CompoundTag tag = hopper.saveWithoutMetadata();
+                            tag.putBoolean("ShouldDrop", shouldDrop);
+                            tag.putInt("MaxDropCount", Math.max(1, Math.min(64, maxDropCount)));
+                            hopper.load(tag);
+                            hopper.setChanged();
+                            
+                            if (hopper.getLevel() != null) {
+                                hopper.getLevel().sendBlockUpdated(hopper.getBlockPos(), 
+                                    hopper.getBlockState(), hopper.getBlockState(), 3);
+                                hopper.getLevel().blockEntityChanged(hopper.getBlockPos());
+                                player.containerMenu.broadcastChanges();
+                            }
+                        }
                     }
                 }
             }

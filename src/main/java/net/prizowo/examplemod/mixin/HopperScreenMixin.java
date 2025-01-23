@@ -63,10 +63,10 @@ public abstract class HopperScreenMixin extends AbstractContainerScreen<HopperMe
         this.checkBox = Button.builder(
             Component.translatable(currentShouldDrop ? "gui.examplemod.hopper.disable_drop" : "gui.examplemod.hopper.enable_drop"),
             (button) -> {
-                currentShouldDrop = !currentShouldDrop;
-                ModMessages.sendToServer(new UpdateHopperC2SPacket(currentShouldDrop,
+                ModMessages.sendToServer(new UpdateHopperC2SPacket(!currentShouldDrop, 
                     Integer.parseInt(this.maxCountInput.getValue())));
-                button.setMessage(Component.translatable(currentShouldDrop ?
+                currentShouldDrop = !currentShouldDrop;
+                button.setMessage(Component.translatable(currentShouldDrop ? 
                     "gui.examplemod.hopper.disable_drop" : "gui.examplemod.hopper.enable_drop"));
             }).bounds(startX + 5, startY + 20, 85, 20).build();
 
